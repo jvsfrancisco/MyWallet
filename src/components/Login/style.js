@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Main = styled.main`
+const MainStyle = styled.main`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,4 +29,4 @@ const Main = styled.main`
     }
 `;
 
-export default Main;
+export default MainStyle;

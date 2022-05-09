@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Main = styled.main`
+const MainStyle = styled.main`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -27,11 +27,11 @@ const Main = styled.main`
         font-size: 20px;
         margin-bottom: 36px;
     }
-    .correct {
-        border-color: green;
+    .correct:onfocus{ 
+        border: 1px solid 'green';
     }
-    .incorrect {
-        border-color: red;
+    .incorrect:onfocus{ 
+        border: 1px solid 'red';
     }
 `;
-export default Main;
+export default MainStyle;

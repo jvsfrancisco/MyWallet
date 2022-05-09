@@ -2,9 +2,9 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
 import { ThreeDots } from "react-loader-spinner";
-import {Main as MainStyle} from "./style";
+import  MainStyle from "./style";
 
-import UserContext from "./../assets/Context";
+import UserContext from "./../../assets/Context";
 
 export default function SignUp() {
     const {Error} = useContext(UserContext);

@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useState, useContext} from "react";
 import { Link, useNavigate } from "react-router-dom";
-import {Main as MainStyle} from "./style"; 
+import  MainStyle from "./style"; 
 import { ThreeDots } from "react-loader-spinner";
 
-import UserContext from "./../assets/Context";
+import UserContext from "./../../assets/Context";
 
 
 export default function Login() {

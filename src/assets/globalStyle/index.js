@@ -51,7 +51,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     /*Global Styles  */
-    
+
     :root {
         --dark-purple: #8C11BE;
         --ligth-purple: #A328D6;
@@ -100,6 +100,11 @@ const GlobalStyle = createGlobalStyle`
         font-size: 20px;
         margin-bottom: 36px;
     }
+    
+    button:hover{
+        cursor: pointer;
+    }
+
     h1{
         font-weight: 700;
         font-size: 26px;

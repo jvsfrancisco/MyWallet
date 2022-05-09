@@ -1,13 +1,14 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import GlobalStyle from "./../assets/globalStyle";
+import UserContext from "./../assets/Context";
 
 import Login from "./Login";
 import SignUp from "./Sign-Up";
-import GlobalStyle from "./../assets/globalStyle/";
-import UserContext from "./../assets/Context";
+
 
 function App() {
 
-  function Error(e, navigate) {
+  function Error(e) {
     console.log(`${e.response.status} - ${e.response.statusText}`);
     alert("Um erro aconteceu, tente novamente");
   }
