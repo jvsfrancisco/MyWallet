@@ -13,19 +13,18 @@ export default function SignUp() {
         name: "",
         email: "",
         password: "",
-        confirmPassword: "",
+        confirm: "",
     });
-
     const navigate = useNavigate();
 
     function register(registerUser) {
         setLoading(true);
-        if (registerUser.password !== registerUser.confirmPassword) {
+        if (registerUser.password !== registerUser.confirm) {
             alert("Senhas diferentes!");
-            setregisterUser({ ...registerUser, password: "", confirmPassword: "" });
+            setregisterUser({ ...registerUser, password: "", confirm: "" });
             return;
         }
-        delete registerUser.confirmPassword;
+        delete registerUser.confirm;
         const promise = axios.post("http://localhost:5000/sign-up", registerUser);
         promise.then(() => {
             navigate("/");
@@ -33,9 +32,11 @@ export default function SignUp() {
         promise.catch((err) => {
             if(err.response.status === 409){
                 alert("E-mail já cadastrado!");
+                setLoading(false)
             }
             else{
                 Error(err);
+                setLoading(false)
             }
         });
     }
@@ -80,14 +81,15 @@ export default function SignUp() {
                     }
                     required
                 />
-                <input className= {registerUser.password === registerUser.confirm  ? "Correct" : "Incorrect"}
+                <input
                     type="password"
                     placeholder="Confirme a senha"
-                    value={registerUser.confirmPassword}
+                    value={registerUser.confirm}
                     disabled = {loading}
-                    onChange={(e) =>
-                        setregisterUser({ ...registerUser, confirmPassword: e.target.value })
+                    onChange={(e) =>{
+                        setregisterUser({ ...registerUser, confirm: e.target.value })
                     }
+                }
                     required
                 />
                 <button type="submit">{loading ? <ThreeDots color="#ffffff" /> : "Cadastrar"}</button>

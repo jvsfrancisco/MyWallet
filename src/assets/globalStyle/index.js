@@ -111,6 +111,12 @@ const GlobalStyle = createGlobalStyle`
         line-height: 31px;
         color: #FFFFFF;
     }
+    .spent{
+        color: var(--expense);
+    }
+    .entry{
+        color: var(--income);
+    }
 `
 
 export default GlobalStyle;

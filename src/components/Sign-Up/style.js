@@ -27,11 +27,5 @@ const MainStyle = styled.main`
         font-size: 20px;
         margin-bottom: 36px;
     }
-    .correct:onfocus{ 
-        border: 1px solid 'green';
-    }
-    .incorrect:onfocus{ 
-        border: 1px solid 'red';
-    }
 `;
 export default MainStyle;
