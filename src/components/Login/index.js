@@ -23,7 +23,8 @@ export default function Login() {
             navigate("/home");
         });
         promise.catch((err) => {
-            Error(err, navigate);
+            Error(err);
+            navigate("/");
             setLoading(false);
             
         });
