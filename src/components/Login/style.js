@@ -26,6 +26,9 @@ const MainStyle = styled.main`
         font-weight: 700;
         font-size: 20px;
         margin-bottom: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 `;
 

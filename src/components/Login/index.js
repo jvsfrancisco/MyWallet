@@ -63,7 +63,7 @@ export default function Login() {
                     required
                 />
                 <button type="submit">
-                    {loading ? <ThreeDots color="#ffffff" /> : "Entrar"}
+                    {loading ? <ThreeDots color="#ffffff" width={50} /> : "Entrar"}
                 </button>
             </form>
 

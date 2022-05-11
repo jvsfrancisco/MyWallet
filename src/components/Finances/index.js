@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import Main from "./style";
 import { useState } from "react";
+import { ThreeDots } from "react-loader-spinner";
 import axios from "axios";
 
 function Finances() {
@@ -10,6 +11,7 @@ function Finances() {
         description: "",
         type: type,
     });
+    const [loading, setLoading] = useState(false);
 
     function writeValue(value) {
         let decimals = value % 1;
@@ -26,14 +28,16 @@ function Finances() {
     const navigate = useNavigate();
 
     function sendEntry(entry) {
+        setLoading(true);
         const config = { headers: { Authorization: `Bearer ${localStorage.getItem("TOKEN")}` } };
         const promise = axios.post("https://projeto-mywallet-api.herokuapp.com/finances", entry, config);
         promise.then((res)=>{
             alert("Cadastro realizado com sucesso");
             navigate("/home");
+            console.log(res.data);
+            setLoading(false);
         });
         promise.catch((err) => {
-            Error(err);
             alert("Um erro aconteceu, tente novamente");
             
         });
@@ -43,7 +47,6 @@ function Finances() {
         e.preventDefault();
         sendEntry(newEntry);
         console.log(newEntry);
-        navigate("/home");
     }
 
     return (
@@ -71,7 +74,7 @@ function Finances() {
                     }
                     required
                 />
-                <button type="submit">Salvar {type === "entry" ? "Entrada" : "Saída"}</button>
+                <button type="submit">{loading ? <ThreeDots color="#ffffff" width={50} /> : `Salvar ${type === "entry" ? "Entrada" : "Saída"}`}</button>
             </form>
         </Main>
     );

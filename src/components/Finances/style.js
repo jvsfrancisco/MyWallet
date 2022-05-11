@@ -7,6 +7,11 @@ const Main = styled.main`
         display: flex;
         flex-direction: column;
     }
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 `;
 
 export default Main;

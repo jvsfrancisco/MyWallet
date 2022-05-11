@@ -92,7 +92,7 @@ export default function SignUp() {
                 }
                     required
                 />
-                <button type="submit">{loading ? <ThreeDots color="#ffffff" /> : "Cadastrar"}</button>
+                <button type="submit">{loading ? <ThreeDots color="#ffffff" width={50} /> : "Cadastrar"}</button>
             </form>
             <Link to="/">Já tem uma conta? Entre agora!</Link>
         </MainStyle>
