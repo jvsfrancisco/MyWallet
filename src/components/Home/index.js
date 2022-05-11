@@ -36,7 +36,18 @@ export default function Home() {
         }
         )
     }
-        
+    
+    function writeValue(value) {
+        let decimals = value % 1;
+        let inteiros = (value - decimals).toString();
+        let inteirosLabel = "";
+        for (let i = 1; i <= inteiros.length; i++) {
+            if ((i-1) % 3 === 0 && i>1) {inteirosLabel = "." + inteirosLabel}
+            inteirosLabel = inteiros[inteiros.length - i] + inteirosLabel;
+        }
+        let dec2 = Math.round(decimals*100)
+        return "R$" + inteirosLabel + "," + (dec2 < 10 ? "0" : "") + dec2;
+    }
     
     if (user.registry) {
         user.registry.forEach((register) => {
@@ -45,6 +56,7 @@ export default function Home() {
             } else if (register.type === "spent") {
                 total -= register.value;
             }
+
         });
     }
 
@@ -66,7 +78,7 @@ export default function Home() {
     }, []);
 
     return user.name ? (
-        <Main color={total > 0 ? "income" : "expense"}>
+        <Main color={total > 0 ? "entry" : "spent"}>
             <aside>
                 <h1>Olá, {user.name}</h1>
                 <Link to="/">
@@ -76,6 +88,7 @@ export default function Home() {
             </aside>
             {user.registry.length > 0 ? (
                 <section>
+                    <article>
                     {user.registry.map((register) => {
                         return (
                             <Container
@@ -86,13 +99,14 @@ export default function Home() {
                                     <span>{register.date}</span>{" "}
                                     {register.description}
                                 </p>
-                                <p class="value">{register.value}</p>
+                                <p value = {register.value}class="value">{writeValue(register.value)} </p>
                             </Container>
                         );
                     })}
+                    </article>
 
                     <p>
-                        SALDO <span>{total}</span>
+                        SALDO <span value = {total}> {writeValue(Math.abs(total))}</span>
                     </p>
                 </section>
             ) : (
@@ -122,6 +136,8 @@ export default function Home() {
 }
 
 const Container = styled.div`
+    margin-bottom: 20px;
+
     p span {
         color: var(--ligth-grey);
         margin-right: 5px;

@@ -66,6 +66,7 @@ const Main = styled.main`
         width: 64px;
         text-align: initial;
     }
+
 `;
 
 

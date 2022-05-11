@@ -55,8 +55,8 @@ const GlobalStyle = createGlobalStyle`
     :root {
         --dark-purple: #8C11BE;
         --ligth-purple: #A328D6;
-        --expense: #C70000;
-        --income: #03AC00;
+        --spent: #C70000;
+        --entry: #03AC00;
         --ligth-grey: #C6C6C6;
         --grey: #868686;
     }
@@ -112,10 +112,10 @@ const GlobalStyle = createGlobalStyle`
         color: #FFFFFF;
     }
     .spent{
-        color: var(--expense);
+        color: var(--spent);
     }
     .entry{
-        color: var(--income);
+        color: var(--entry);
     }
 `
 
