@@ -18,6 +18,25 @@ export default function Home() {
 
     const navigate = useNavigate();
 
+    function logout(token) {
+        const config = {
+            headers: { Authorization: `Bearer ${token}` },
+        };
+
+        const promise = axios.delete("http://localhost:5000/logout", {}, config)
+
+        promise.then(() => {
+            localStorage.removeItem("TOKEN");
+            setUser({});
+            navigate("/");
+        }
+        )
+        promise.catch((err) => {
+            console.log(err);
+        }
+        )
+    }
+        
     
     if (user.registry) {
         user.registry.forEach((register) => {
@@ -51,6 +70,7 @@ export default function Home() {
             <aside>
                 <h1>Olá, {user.name}</h1>
                 <Link to="/">
+                {() => logout(token)}
                     <RiLogoutBoxRLine />
                 </Link>
             </aside>
