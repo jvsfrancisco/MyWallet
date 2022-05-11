@@ -23,7 +23,7 @@ export default function Home() {
             headers: { Authorization: `Bearer ${token}` },
         };
 
-        const promise = axios.delete("http://localhost:5000/logout", {}, config)
+        const promise = axios.delete("https://projeto-mywallet-api.herokuapp.com/logout", {}, config)
 
         promise.then(() => {
             localStorage.removeItem("TOKEN");
@@ -53,7 +53,7 @@ export default function Home() {
             headers: { Authorization: `Bearer ${token}` },
         };
         console.log(token)
-        const promise = axios.get("http://localhost:5000/finances", config);
+        const promise = axios.get("https://projeto-mywallet-api.herokuapp.com/finances", config);
         promise.then((res) => {
             setUser(res.data);
             console.log(user)

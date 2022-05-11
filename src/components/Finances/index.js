@@ -15,7 +15,7 @@ function Finances() {
 
     function sendEntry(entry) {
         const config = { headers: { Authorization: `Bearer ${localStorage.getItem("TOKEN")}` } };
-        const promise = axios.post("http://localhost:5000/finances", entry, config);
+        const promise = axios.post("https://projeto-mywallet-api.herokuapp.com/finances", entry, config);
         promise.then((res)=>{
             alert("Cadastro realizado com sucesso");
             navigate("/home");
