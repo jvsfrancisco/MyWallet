@@ -72,7 +72,6 @@ const GlobalStyle = createGlobalStyle`
     }
     input{
         width: 100%;
-        max-width: 470px;
         height: 58px;
         padding: 18px 15px;
         border-radius: 5px;
@@ -93,12 +92,10 @@ const GlobalStyle = createGlobalStyle`
         border: none;
         border-radius: 5px;
         width: 100%;
-        max-width: 470px;
         height: 46px;
         color: #ffffff;
         font-weight: 700;
         font-size: 20px;
-        margin-bottom: 36px;
     }
     
     button:hover{
