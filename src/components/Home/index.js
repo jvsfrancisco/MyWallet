@@ -1,4 +1,5 @@
 import axios from "axios";
+import { ThreeDots } from "react-loader-spinner";
 import { Link, useNavigate } from "react-router-dom";
 import {
     RiLogoutBoxRLine,
@@ -86,7 +87,7 @@ export default function Home() {
                     <RiLogoutBoxRLine />
                 </Link>
             </aside>
-            {user.registry.length > 0 ? (
+            {!user.registry ? (<ThreeDots color="#ffffff" width={50} />) : user.registry.length > 0 ? (
                 <section>
                     <article>
                     {user.registry.map((register) => {
@@ -105,15 +106,13 @@ export default function Home() {
                     })}
                     </article>
 
-                    <p>
-                        SALDO <span value = {total}> {writeValue(Math.abs(total))}</span>
-                    </p>
+                    <p className="total_value"> SALDO <span value = {total}> {writeValue(Math.abs(total))}</span> </p>
                 </section>
             ) : (
                 <section class="empty">
                     <p>Não há registros de entrada ou saída</p>
                 </section>
-            )}
+            ) }
 
             <div>
                 <Link to="/finances/entry">
@@ -131,7 +130,11 @@ export default function Home() {
             </div>
         </Main>
     ) : (
-        <> </>
+      <Main>
+        <div className="loading">
+          <ThreeDots color="#ffffff" width={50} />
+        </div>
+      </Main>
     );
 }
 

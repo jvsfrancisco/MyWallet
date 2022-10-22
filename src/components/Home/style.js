@@ -1,6 +1,17 @@
 import styled from "styled-components";
 
 const Main = styled.main`
+    display: flex;
+    flex-direction: column;
+
+    article{
+        overflow-x: scroll;
+        &::-webkit-scrollbar {
+        display: none;
+        
+    }
+}
+
     aside {
         display: flex;
         justify-content: space-between;
@@ -31,8 +42,10 @@ const Main = styled.main`
         color: var(--grey);
         text-align: center;
     }
-    section > p {
+    .total_value {
+        margin-top: 15px;
         display: flex;
+        align-items: center;
         justify-content: space-between;
         font-weight: 700;
     }
@@ -66,7 +79,14 @@ const Main = styled.main`
         width: 64px;
         text-align: initial;
     }
-
+    .loading{
+        align-self: center;
+        justify-self: center;
+        height: 100vh;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 `;
 
 
