@@ -53,8 +53,10 @@ const GlobalStyle = createGlobalStyle`
     /*Global Styles  */
 
     :root {
+        --light-light-purple: #D28FEE;
         --dark-purple: #8C11BE;
         --ligth-purple: #A328D6;
+        --neutral: #000000;
         --spent: #C70000;
         --entry: #03AC00;
         --ligth-grey: #C6C6C6;
@@ -100,6 +102,12 @@ const GlobalStyle = createGlobalStyle`
     
     button:hover{
         cursor: pointer;
+    }
+
+    button:disabled{
+        cursor: auto;
+        background-color: var(--light-light-purple);
+        color: #ffffff;
     }
 
     h1{

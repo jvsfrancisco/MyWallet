@@ -57,6 +57,7 @@ export default function SignUp() {
                 <input
                     type="text"
                     placeholder="Nome"
+                    disabled = {loading}
                     value={registerUser.name}
                     onChange={(e) => setregisterUser({ ...registerUser, name: e.target.value })}
                     required

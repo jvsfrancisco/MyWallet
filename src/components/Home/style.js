@@ -7,8 +7,7 @@ const Main = styled.main`
     article{
         overflow-x: scroll;
         &::-webkit-scrollbar {
-        display: none;
-        
+            display: none;
     }
 }
 

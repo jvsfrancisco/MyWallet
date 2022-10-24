@@ -16,7 +16,7 @@ function Finances() {
     const navigate = useNavigate();
 
     function sendEntry(entry) {
-        entry.value = entry.value.replace(",", ".");
+        if(entry.value.includes(",")) entry.value = entry.value.replace(",", ".");
         setLoading(true);
         const config = { headers: { Authorization: `Bearer ${localStorage.getItem("TOKEN")}` } };
         const promise = axios.post("https://projeto-mywallet-api.herokuapp.com/finances", entry, config);
@@ -63,8 +63,8 @@ function Finances() {
                         }
                         required
                     />
-                    <button type="submit">{loading ? <ThreeDots color="#ffffff" width={50} /> : `Salvar ${type === "entry" ? "Entrada" : "Saída"}`}</button>
-                    <button onClick={() => navigate("/home")}>{loading ? <ThreeDots color="#ffffff" width={50} /> : `Cancelar`}</button>
+                    <button type="submit" disabled={loading}>{loading ? <ThreeDots color="#ffffff" width={50} /> : `Salvar ${type === "entry" ? "Entrada" : "Saída"}`}</button>
+                    <button disabled={loading} onClick={() => navigate("/home")}> Cancelar </button>
                 </form>
             </div>
         </Main>
