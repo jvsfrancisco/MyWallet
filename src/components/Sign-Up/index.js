@@ -25,7 +25,7 @@ export default function SignUp() {
             return;
         }
         delete registerUser.confirm;
-        const promise = axios.post("https://projeto-mywallet-api.herokuapp.com/sign-up", registerUser);
+        const promise = axios.post("https://mywallet-api.fly.dev/sign-up", registerUser);
         promise.then(() => {
             navigate("/");
         });
