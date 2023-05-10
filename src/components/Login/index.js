@@ -16,7 +16,7 @@ export default function Login() {
 
     function requestAcess(userObj) {
         setLoading(true);
-        const promise = axios.post("https://projeto-mywallet-api.herokuapp.com/sign-in", userObj);
+        const promise = axios.post("https://mywallet-api.fly.dev/sign-in", userObj);
         promise.then((res)=>{
             const token = res.data;
             localStorage.setItem("TOKEN", token);
