@@ -19,7 +19,7 @@ function Finances() {
         if(entry.value.includes(",")) entry.value = entry.value.replace(",", ".");
         setLoading(true);
         const config = { headers: { Authorization: `Bearer ${localStorage.getItem("TOKEN")}` } };
-        const promise = axios.post("https://projeto-mywallet-api.herokuapp.com/finances", entry, config);
+        const promise = axios.post("https://mywallet-api.fly.dev/finances", entry, config);
         promise.then((res)=>{
             navigate("/home");
             console.log(res.data);
