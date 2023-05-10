@@ -25,7 +25,7 @@ export default function Home() {
     };
 
     const promise = axios.delete(
-      "https://projeto-mywallet-api.herokuapp.com/logout",
+      "https://mywallet-api.fly.dev/logout",
       {},
       config
     );
@@ -70,7 +70,7 @@ export default function Home() {
     };
     console.log(token);
     const promise = axios.get(
-      "https://projeto-mywallet-api.herokuapp.com/finances",
+      "https://mywallet-api.fly.dev/finances",
       config
     );
     promise.then((res) => {
